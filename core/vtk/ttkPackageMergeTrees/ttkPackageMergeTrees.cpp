@@ -8,6 +8,7 @@
 #include <vtkObjectFactory.h>
 #include <vtkPointData.h>
 #include <vtkSmartPointer.h>
+#include <vtkUnstructuredGrid.h>
 
 #include <ttkMacros.h>
 #include <ttkUtils.h>
