@@ -155,9 +155,9 @@ int ttkPackageMergeTrees::RequestData(vtkInformation *ttkNotUsed(request),
   auto outputSkeletonArcs = vtkUnstructuredGrid::GetData(outputVector, 1);
   auto outputSegmentation = vtkDataSet::GetData(outputVector, 2);
 
-  outputSkeletonNodes->ShallowCopy(vtkUnstructuredGrid::SafeDownCast(inputDataSet->GetBlock(0)))
-  outputSkeletonArcs->ShallowCopy(vtkUnstructuredGrid::SafeDownCast(inputDataSet->GetBlock(1)))
-  outputSegmentation->ShallowCopy(vtkDataSet::SafeDownCast(inputDataSet->GetBlock(2)))
+  outputSkeletonNodes->ShallowCopy(vtkUnstructuredGrid::SafeDownCast(inputDataSet->GetBlock(0)));
+  outputSkeletonArcs->ShallowCopy(vtkUnstructuredGrid::SafeDownCast(inputDataSet->GetBlock(1)));
+  outputSegmentation->ShallowCopy(vtkDataSet::SafeDownCast(inputDataSet->GetBlock(2)));
 
   // return success
   return 1;
