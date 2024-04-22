@@ -68,7 +68,7 @@ int ttkPackageMergeTrees::FillOutputPortInformation(int port, vtkInformation *in
     info->Set(vtkDataObject::DATA_TYPE_NAME(), "vtkUnstructuredGrid");
     return 1;
   } else if(port == 2) {
-    info->Set(ttkAlgorithm::DATA_TYPE_NAME(), "vtkDataSet");
+    info->Set(vtkDataObject::DATA_TYPE_NAME(), "vtkDataSet");
     return 1;
   }
   return 0;
