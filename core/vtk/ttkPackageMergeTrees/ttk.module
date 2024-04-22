@@ -1,0 +1,9 @@
+NAME
+  ttkPackageMergeTrees
+SOURCES
+  ttkPackageMergeTrees.cpp
+HEADERS
+  ttkPackageMergeTrees.h
+DEPENDS
+  packageMergeTrees
+  ttkAlgorithm

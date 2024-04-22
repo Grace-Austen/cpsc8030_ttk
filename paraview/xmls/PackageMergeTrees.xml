@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO 11: Add widgets to the ParaView UI that control the member variables of the vtk filter -->
+<!-- NOTE: Unfortunately the widget types and their properties are not well documented. -->
+<!--       The best thing you can do is to look at filters that have similar widgets you require and copy their source code. -->
+<!--       Good resources are: IcoSphere.xml, PersistenceDiagram.xml, and ArrayEditor.xml -->
+<ServerManagerConfiguration>
+  <ProxyGroup name="filters">
+    <SourceProxy name="ttkPackageMergeTrees" class="ttkPackageMergeTrees" label="TTK PackageMergeTrees">
+      <Documentation long_help="PackageMergeTrees Long" short_help="PackageMergeTrees Short">This filter is takes in a vtkmultiblock loaded from a data save of a Group Dataset of a merge tree.</Documentation>
+
+      <!-- INPUT DATA OBJECTS -->
+      <InputProperty name="Input" command="SetInputConnection">
+        <ProxyGroupDomain name="groups">
+          <Group name="sources" />
+          <Group name="filters" />
+        </ProxyGroupDomain>
+        <!-- <DataTypeDomain name="input_type">
+          <DataType value="vtkDataSet" />
+        </DataTypeDomain> -->
+        <Documentation>A vtkmultiblock loaded from a data save of a Group Dataset of a merge tree.</Documentation>
+      </InputProperty>
+
+      <!-- INPUT PARAMETER WIDGETS -->
+
+      <!-- This is the VTK way of selecting arrays for processing by calling the SetInputArrayToProcess method -->
+      <!-- (see ttkPackageMergeTrees.cpp for details) -->
+      <!-- <StringVectorProperty name="InputArray" label="Input Array" command="SetInputArrayToProcess" element_types="0 0 0 0 2" number_of_elements="5">
+        <ArrayListDomain attribute_type="Scalars" name="array_list">
+          <RequiredProperties>
+            <Property function="Input" name="Input" />
+          </RequiredProperties>
+        </ArrayListDomain>
+        <Documentation>The scalar array that will be used to compute averages.</Documentation>
+      </StringVectorProperty> -->
+
+      <!-- Create a UI group that contains all input parameter widgets (here only one) -->
+      <!-- <PropertyGroup panel_widget="Line" label="Input options">
+        <Property name="InputArray" />
+      </PropertyGroup> -->
+
+      <!-- OUTPUT PARAMETER WIDGETS -->
+
+      A string parameter that controls the name of the output array
+      <StringVectorProperty name="OutputArrayName" label="Output Array Name" command="SetOutputArrayName" number_of_elements="1" default_values="AveragedScalarField" />
+
+      <!-- Create a UI group that contains all output parameter widgets (here only one) -->
+      <PropertyGroup panel_widget="Line" label="Output options">
+        <Property name="OutputArrayName" />
+      </PropertyGroup>
+
+      <!-- DEBUG -->
+      ${DEBUG_WIDGETS}
+
+      <!-- MENU CATEGORY -->
+      <Hints>
+        <ShowInMenu category="TTK - Pipeline" />
+      </Hints>
+    </SourceProxy>
+  </ProxyGroup>
+</ServerManagerConfiguration>
